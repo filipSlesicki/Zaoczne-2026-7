@@ -39,7 +39,6 @@ public class Generator : MonoBehaviour
         if (pointsManager.TrySpendPoints( autoPointsUpgradeCost, upgradeGenerationResource))
         {
             autoPointsGain += autoPointsGainPerUpgrade;
-            autoPointsUpgradeCost += 10;
             upgradeAutoPointsText.text = $" {name} {autoPointsGain}/s ({autoPointsUpgradeCost})";
         }
     }

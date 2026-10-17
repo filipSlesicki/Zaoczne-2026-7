@@ -5,6 +5,7 @@ public class PointsManager : MonoBehaviour
 {
     public int food = 3; // = to przypisanie wartoœci
     public int population;
+    public int populationLimit;
     public TMP_Text foodText;
     public TMP_Text populationText;
 
