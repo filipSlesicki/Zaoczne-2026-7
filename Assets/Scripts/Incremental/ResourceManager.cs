@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class PointsManager : MonoBehaviour
+public class ResourceManager : MonoBehaviour
 {
     public int food = 3; // = to przypisanie wartoœci
     public int population;
@@ -9,7 +9,7 @@ public class PointsManager : MonoBehaviour
     public TMP_Text foodText;
     public TMP_Text populationText;
 
-    public void AddPoints(int addedPoints, ResorceType resource)
+    public void AddResource(int addedPoints, ResorceType resource)
     {
         if(resource == ResorceType.Food)
         {
@@ -23,7 +23,13 @@ public class PointsManager : MonoBehaviour
         }
     }
 
-    public bool TrySpendPoints(int cost, ResorceType resource)
+    /// <summary>
+    /// Sprawdza czy mam doœæ zasobów i jeœli tak, to odejmuje zasoby
+    /// </summary>
+    /// <param name="cost">ile próbubujê wydaæ</param>
+    /// <param name="resource">typ zasobów</param>
+    /// <returns>Czy uda³o siê wydaæ zasoby</returns>
+    public bool TrySpendResource(int cost, ResorceType resource)
     {
         if(resource == ResorceType.Food)
         {
@@ -39,7 +45,7 @@ public class PointsManager : MonoBehaviour
             if (population >= cost)
             {
                 population -= cost;
-                populationText.text = "population: " + population.ToString();
+                populationText.text = $"population: {population}/{populationLimit}";
                 return true;
             }
         }

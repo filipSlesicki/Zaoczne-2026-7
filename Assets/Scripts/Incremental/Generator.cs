@@ -5,7 +5,7 @@ public class Generator : MonoBehaviour
 {
     public ResorceType generatedResource;
     public ResorceType upgradeGenerationResource;
-    public PointsManager pointsManager;
+    public ResourceManager pointsManager;
     private int autoPointsGain = 0;
     public int autoPointsGainPerUpgrade = 1;
     public int autoPointsUpgradeCost = 10;
@@ -36,7 +36,7 @@ public class Generator : MonoBehaviour
 
     public void UpgradeAutoPoints()
     {
-        if (pointsManager.TrySpendPoints( autoPointsUpgradeCost, upgradeGenerationResource))
+        if (pointsManager.TrySpendResource( autoPointsUpgradeCost, upgradeGenerationResource))
         {
             autoPointsGain += autoPointsGainPerUpgrade;
             upgradeAutoPointsText.text = $" {name} {autoPointsGain}/s ({autoPointsUpgradeCost})";
@@ -50,13 +50,13 @@ public class Generator : MonoBehaviour
 
     public void AddClickPoints()
     {
-        pointsManager.AddPoints(addedPointsPerClick, generatedResource);
+        pointsManager.AddResource(addedPointsPerClick, generatedResource);
         clicks++;
     }
 
     public void UpgradePointsPerClick()
     {
-        if (pointsManager.TrySpendPoints(clickUpgradeCost, generatedResource))
+        if (pointsManager.TrySpendResource(clickUpgradeCost, generatedResource))
         {
             addedPointsPerClick++;
             clickUpgradeCost += clicks;
@@ -71,6 +71,6 @@ public class Generator : MonoBehaviour
 
     private void AddAutoPoints()
     {
-        pointsManager.AddPoints(autoPointsGain, generatedResource);
+        pointsManager.AddResource(autoPointsGain, generatedResource);
     }
 }

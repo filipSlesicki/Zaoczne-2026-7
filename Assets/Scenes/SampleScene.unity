@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   food: 3
   population: 0
-  populationLimit: 0
+  populationLimit: 10
   foodText: {fileID: 589943506}
   populationText: {fileID: 442024850}
 --- !u!4 &28978344
@@ -4523,8 +4523,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointsManager: {fileID: 28978343}
-  populationFoodCost: 1
-  populationCostIncrease: 10
+  populationFoodCost: 20
+  costIncreaseMultiplier: 1.2
 --- !u!1 &1522382476
 GameObject:
   m_ObjectHideFlags: 0
