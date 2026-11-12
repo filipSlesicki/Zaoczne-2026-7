@@ -4,7 +4,7 @@ using UnityEngine;
 public class Generator : MonoBehaviour
 {
     public ResorceType generatedResource;
-    public ResorceType upgradeGenerationResource;
+    public ResorceType upgradeCostResource;
     public ResourceManager pointsManager;
     private int autoPointsGain = 0;
     public int autoPointsGainPerUpgrade = 1;
@@ -36,7 +36,7 @@ public class Generator : MonoBehaviour
 
     public void UpgradeAutoPoints()
     {
-        if (pointsManager.TrySpendResource( autoPointsUpgradeCost, upgradeGenerationResource))
+        if (pointsManager.TrySpendResource(autoPointsUpgradeCost, upgradeCostResource))
         {
             autoPointsGain += autoPointsGainPerUpgrade;
             upgradeAutoPointsText.text = $" {name} {autoPointsGain}/s ({autoPointsUpgradeCost})";
@@ -46,12 +46,6 @@ public class Generator : MonoBehaviour
     public void UpgradeGainInterval()
     {
         autoPointsGainInterval *= 0.9f;
-    }
-
-    public void AddClickPoints()
-    {
-        pointsManager.AddResource(addedPointsPerClick, generatedResource);
-        clicks++;
     }
 
     public void UpgradePointsPerClick()
@@ -67,6 +61,12 @@ public class Generator : MonoBehaviour
         {
             print("Not enough points");
         }
+    }
+
+    public void AddClickPoints()
+    {
+        pointsManager.AddResource(addedPointsPerClick, generatedResource);
+        clicks++;
     }
 
     private void AddAutoPoints()

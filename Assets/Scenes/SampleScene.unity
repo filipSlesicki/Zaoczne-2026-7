@@ -130,7 +130,7 @@ GameObject:
   - component: {fileID: 28978344}
   - component: {fileID: 28978343}
   m_Layer: 0
-  m_Name: PointsManager
+  m_Name: ResourceManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4080,7 +4080,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   generatedResource: 0
-  upgradeGenerationResource: 1
+  upgradeCostResource: 1
   pointsManager: {fileID: 28978343}
   autoPointsGainPerUpgrade: 1
   autoPointsUpgradeCost: 1
